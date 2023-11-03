@@ -1,14 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
-import Header from './Components/Header';
+import Nav from './Components/Nav'
+import Home from './Components/Home';
+import Services from './Components/Services';
 
 function App() {
   return (
-    // <><Header /><div className='bg-indigo-600 w-full h-s'> </div></>
-    <div>
-      <Header/>
-      <div className='bg-indigo-600 w-full h-screen'></div>
-    </div>
+    <>
+    {/* <h1 className='text-brandprimary'>Hellow WOrld</h1> */}
+    <Nav/>
+    <Home/>
+    <Services/>
+    </>
   );
 }
 
