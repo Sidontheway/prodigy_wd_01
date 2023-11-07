@@ -9,12 +9,15 @@ import {
   AiFillBug,
   AiFillBoxPlot
 } from "react-icons/ai"
+import membership from '../assets/membership.svg'
+import national_ass from '../assets/national_ass.svg'
+import clubs from '../assets/clubs.svg'
 
 const Services = () => {
   const services = [
-    { id: 1, title: 'Membership Organisations', description: 'Our membership management software provides full automation of membership renewals and payments', image: '/src/assets/membership.svg' },
-    { id: 2, title: 'National Associations', description: 'Our membership management software provides full automation of membership renewals and payments', image: "/src/assets/national_ass.svg" },
-    { id: 3, title: 'Clubs And Groups', description: 'Our membership management software provides full automation of membership renewals and payments', image: "/src/assets/clubs.svg" }
+    { id: 1, title: 'Membership Organisations', description: 'Our membership management software provides full automation of membership renewals and payments', image:membership },
+    { id: 2, title: 'National Associations', description: 'Our membership management software provides full automation of membership renewals and payments', image: national_ass },
+    { id: 3, title: 'Clubs And Groups', description: 'Our membership management software provides full automation of membership renewals and payments', image: clubs }
 
   ]
 
@@ -45,11 +48,11 @@ const Services = () => {
       </div>
 
       {/* cards */}
-      <div>
+      <div className='mt-14 grid lg:grid-cols-3 md:grid-col-2 grid-cols-1 md:w-11/12'>
         {
-          services.map(services => <div key={services.id}>
+          services.map(services => <div key={services.id} className='px-4 py-8 text-center md:w-[300px] mx-auto md:h-80 rounded-md shadow cursor-pointer hover:-translate-y-5 hover:border-b-4 hover:border-indigo-700 transition-all duration-300 justify-center flex items-center h-full'>
             <div>
-              <div className='bg-[#E8F5E9] h-14 w-14 mx-auto rounded-br-3xl rounded-tl-3xl'> <img  className = "-ml-5"    src={services.image} alt="picture" /></div>
+              <div className='bg-[#E8F5E9] mb-4 h-14 w-14 mx-auto rounded-br-3xl rounded-tl-3xl'> <img  className = "-ml-5"    src={services.image} alt="picture" /></div>
               <h4 className='text-2xl font-bold text-neutralDgray mb-2 px-2'>{services.title}</h4>
               <p className='text-sm text-neutralDgray '>{services.description}</p>
             </div>
@@ -58,6 +61,7 @@ const Services = () => {
         }
       </div>
     </div>
+    
 
   )
 }
