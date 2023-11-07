@@ -11,6 +11,23 @@ const Nav1 = () => {
         setisMenuOpen(!isMenuOpen);
     }
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setisSticky(true);
+            }
+            else {
+                setisSticky(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.addEventListener('scroll', handleScroll);
+        }
+
+    })
+
     // nav items;
     const navitem = [
         { link: "Home" },
@@ -22,10 +39,11 @@ const Nav1 = () => {
         { link: "Contact" }
     ]
 
+
     return (
 
         <header>
-            <nav className = 'ml-8'>
+            <nav className = {`${isSticky ? "fixed top-0 left-0 right-0 border-b bg-white duration-300 " : ""} ml-8`}>
                 {/* logo section */}
                 <div className='flex items-center text-base justify-between gap-8 p-5 pl-16 pr-16'>
                     <a href='/' className='text-3xl font-black items-center space-x-3 w-3/4'>Author<span className='text-[#17b978]'>.</span></a>
@@ -55,10 +73,10 @@ const Nav1 = () => {
 
             {/* menu items for mobile view */}
 
-            <div className= {`md:hidden bg-color_primary pl-32 ${isMenuOpen ? "":"hidden"} p-4 rounded-lg`}>
+            <div className= {`md:hidden bg-color_primary fixed z-50 pl-32 ${isMenuOpen ? "":"hidden"} p-4 rounded-lg w-full` }>
                 {
                     navitem.map(({ link }) => <Link spy={true} smooth={true} offset={-100} className='block text-base 
-                  cursor-pointer bg-color_primary text-white font-semibold p-2 hover:textnpm-text_blue'> {link} </Link>)
+                  cursor-pointer bg-color_primary text-white font-semibold p-2 hover:text-gray-600'> {link} </Link>)
                 }
             </div>
         </header>
